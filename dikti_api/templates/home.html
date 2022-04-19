@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pendaftaran</title>
+    <style>
+        body{
+            background:lightblue;
+        }
+        .form-grup{
+            width:400px;
+            margin:0 auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{search}}</h1>
+    <form action="{{url}}" method="post">
+        <input type="hidden" name="_token" value="{{ data }}">
+        <input type="text" name="search" id="search" placeholder="Cari nama">
+        <input type="submit" value="Cari">
+        <div class="form-group">
+            <form>
+                <label for="nama"> Nama Kampus</label>
+                <input type="text" name="nama" id="nama" placeholder="Cari kampus.." list="listkampus">
+                <label for="alamat"> Alamat Kampus</label>
+                <input type="text" name="alamat" id="alamat" placeholder="Cari alamat.." list="listalamat">
+                {% for i in data %}
+                <datalist id="listkampus">
+                    <datalist id="listalamat">
+                        <option value="{{i.nama}}">
+                        <option value="{{i.alamat}}">
+                {% endfor %}
+                </select>
+            </form>
+        </div>
+    </form>
+</body>
+</html>
